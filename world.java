@@ -5,7 +5,9 @@ public class World{
 
 	System.out.println("Hello bady");
 System.out.println("git diff가 도대체 무엇이냐?;;;; 워킹트리와 인덱스를 구분??????");
+System.out.println("오 쒯~~~~~~~");
 
 	
   }
 }
+
