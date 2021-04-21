@@ -1,4 +1,7 @@
+
 // GUI.JAVA 
 // -- bewfunc
+<<<<<<< HEAD
 //
-// int x = 10;
+// int x = 0;
+// >>>>>> bewfunc
