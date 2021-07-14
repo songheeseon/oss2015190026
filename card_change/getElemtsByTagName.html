@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <script type = "text/javascript" src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script>
+
+           
+            // function change(num){
+            // letters=document.getElementsByTagName("img");
+            // if(random == num){
+            //     letter[4].src = "0.png";
+            // }
+            // else
+            // letters[4].src = "1.png";
+            // }
+            items = [];
+            shuffle_list = [];
+            items_temp = ["1.png", "2.png", "3.png", "4.png", "5.gif"];
+            state = 0; 
+
+            
+            function Rand(min, max){
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min)) +min;
+            }
+
+
+            function change(no){
+                box = document.getElementsByTagName("img"); 
+                if(state == 0)
+                {
+                    shuffle();
+                    state = 1;
+                }
+                str = "./img/"+ items[no];
+                box[no].src = str; 
+            }
+
+            // function shuffle(){
+            //     for(i=0; i<5; i++)
+            //     {
+            //         for (j=i+1 ; j<5; j++)
+            //         {
+            //             if()
+            //         }
+            //     }
+            // }
+
+            function shuffle(){
+                shuffle_list=[Rand(0, 5), Rand(0, 5), Rand(0, 5), Rand(0, 5), Rand(0, 5)];
+                check_no();
+                for(i=0; i<5; i++)
+                {
+                    items[shuffle_list[i]] = items_temp[i];
+                }
+            }
+
+            function check_no()
+            {
+                get_no = [0,1,2,3,4]; 
+                for(i=0; i<5; i++)
+                {
+                    for(k=0; k<get_no.length; k++)
+                    {
+                        if(shuffle_list[i] == get_no[k])
+                        {
+                            //lotto_array[j] = lotto_array[rand(j+1, 45)];
+                            get_no.splice(k, 1);
+                        }
+                    }
+                }
+
+                for(i=0; i<5; i++){
+                    for(j=i+1; j<5; j++)
+                    {
+                        if(shuffle_list[i] == shuffle_list[j])
+                        {
+                            shuffle_list[i] = get_no[0];
+                            for(k=0; k<get_no.length; k++){
+                                if(shuffle_list[i] == get_no[k])
+                                {
+                                    get_no.splice(k,1); 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            </script>
+
+
+
+        <body>
+            <img src="./img/present.png" width="300px" height="300px"  onclick="change(0);">   
+            <img src="./img/present.png" width="300px" height="300px"  onclick="change(1);">   
+            <img src="./img/present.png" width="300px" height="300px"  onclick="change(2);">  
+            <img src="./img/present.png" width="300px" height="300px"  onclick="change(3);">   
+            <img src="./img/present.png" width="300px" height="300px"  onclick="change(4);">  
+            <br><br>
+            <div>
+            <button type ="button" style="width:100px; height:50px; margin:auto;" onclick="location.href='./getElemtsByTagName.html'"value="초기화">초기화</button>
+            </div>
+        </body>
+    </head>
+</html> 
